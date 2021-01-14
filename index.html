@@ -24,8 +24,19 @@
 </head>
 
 <body>
-
 	<!-- Add your site or application content here -->
+	<header>
+		<nav>
+			<div class="logo-wrapper">
+				<a href="#" class="logo">Logo</a>
+			</div>
+			<div class="nav-items">
+				<a href="#">Home</a>
+				<a href="#">About</a>
+				<a href="#">Contact</a>
+			</div>
+		</nav>
+	</header>
 
 	<main class="layout">
 		<h1>Heading 1</h1>
@@ -110,6 +121,19 @@
 			<button class="small">Small</button>
 		</form>
 	</main>
+	<footer>
+		<div><a href="#" class="logo">Logo</a></div>
+		<nav>
+			<a href="#">Home</a>
+			<a href="#">About</a>
+			<a href="#">Contact</a>
+		</nav>
+		<p>
+			&copy;
+			<span id="year"><script>document.getElementById('year').appendChild(document.createTextNode(new Date().getFullYear()))</script></span>
+			Company Name
+		</p>
+	</footer>
 
 	<script src="js/vendor/modernizr-3.11.2.min.js"></script>
 	<script src="js/plugins.js"></script>

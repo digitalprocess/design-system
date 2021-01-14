@@ -2,13 +2,14 @@
 
 :root {
 	/* Define Colors as colors */
-	--green: #00ebc7;
-	--red: #ff5470;
-	--yellow: #fde24f;
+	--green: aquamarine;
+	--red: crimson;
+	--yellow: yellow;
 	--black: #1b2d45;
-	--darkBlue: #00214d;
-	--grey: #bfbfbf;
-	--lightGrey: #f2f4f6;
+	--darkBlue: darkblue;
+	--grey: gray;
+	--darkGray: darkgray;
+	--lightGrey: lightgray;
 
 	/* Define Colors intentions */
 	--background: var(--lightGrey);
@@ -22,12 +23,13 @@
 	/* Type */
 	--headingFont: 'Playfair Display', serif;
 	--bodyFont: 'Open Sans', sans-serif;
-	--baseFontSize: 100%; /*16px*/
-	--h1: 4.209rem;
-	--h2: 3.157rem;;
-	--h3: 2.369rem;
-	--h4: 1.777rem;
-	--h5: 1.333rem;
+	/* --baseFontSize: 100%; 16px */
+	--baseFontSize: 112.5%; /*18px */
+	--h1: 3.052rem;
+	--h2: 2.441rem;
+	--h3: 1.953rem;
+	--h4: 1.563rem;
+	--h5: 1.25rem;
 	--h6: 1.111rem;
 	--smallText: 0.8rem;
 
@@ -37,15 +39,71 @@
 	--level-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 	--level-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 	--inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+	/* Positioning */
+	--containerPadding: 1rem;
+	--headerHeight: 3rem;
 }
 
-html {font-size: var(--baseFontSize)} /*16px*/
+html {
+	font-size: var(--baseFontSize); /*18px*/
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
 
 body {
 	font-family: var(--bodyFont);
 	font-weight: 400;
 	line-height: 1.75;
-	padding-bottom: 3rem;
+}
+
+header {
+	--headerBackground: var(--black);
+	background: var(--headerBackground);
+	color: white;
+	box-shadow: var(--level-2);
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+header nav {
+	height: var(--headerHeight);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: var(--containerPadding);
+}
+
+header a {
+	color: white;
+	text-decoration: none;
+}
+
+header a + a {
+	margin-left: 0.5rem;
+}
+
+footer {
+	--footerTextColor: white;
+	color: var(--footerTextColor);
+	background: var(--black);
+	padding: var(--containerPadding);
+	text-align: center;
+}
+
+footer a {
+	color: var(--footerTextColor);
+}
+
+footer p {
+	margin: 0;
 }
 
 p {
@@ -93,6 +151,7 @@ label {
 
 input,
 textarea {
+	width: 100%;
 	padding: 0.5rem;
 	border: var(--line);
 	border-radius: 4px;
@@ -101,6 +160,7 @@ textarea {
 
 textarea {
 	height: 5rem;
+	/* width: 100%; */
 }
 
 ::placeholder {
@@ -135,7 +195,7 @@ button:hover {
 
 button[disabled] {
 	opacity: 0.4;
-	--textColor: var(--grey);
+	--textColor: var(--lightGrey);
 	cursor: not-allowed;
 }
 
@@ -148,18 +208,23 @@ button.small {
 }
 
 .layout {
-	margin: 0 auto;
-	width: 95%;
+	padding: var(--containerPadding);
+	padding-top: var(--headerHeight);
 }
 
 .grid {
 	--gridCols: 2;
+	gap: 0.5rem;
 	display: block;
 	grid-template-columns: repeat(var(--gridCols), 1fr);
 }
 
 .cols-3 {
 	--gridCols: 3;
+}
+
+.cols-4 {
+	--gridCols: 4;
 }
 
 .flex {
@@ -170,6 +235,11 @@ button.small {
 
 .flex--space-around {
 	--justifyContent: space-around;
+}
+
+.logo {
+	font-size: var(--baseFontSize);
+	margin: 0;
 }
 
 @media only screen and (min-width: 768px) {
