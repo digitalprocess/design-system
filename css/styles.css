@@ -4,51 +4,62 @@
 	/* Define Colors as colors */
 	--green: aquamarine;
 	--red: crimson;
-	--yellow: yellow;
+	--yellow: #fde24f;
 	--black: #1b2d45;
-	--darkBlue: darkblue;
-	--grey: gray;
-	--darkGray: darkgray;
-	--lightGrey: lightgray;
+	--darkBlue: #00214d;
+	--darkGrey: #222;
+	--grey: #bfbfbf;
+	--lightGrey: #f2f4f6;
+	--white: #fff;
 
 	/* Define Colors intentions */
+	--primary: var(--green);
+	--danger: var(--red);
 	--background: var(--lightGrey);
 	--textColor: var(--black);
 	--lineColor: var(--grey);
-	--danger: var(--red);
+	--cardBg: var(--white);
+	--headerBackground: var(--darkBlue);
+	--buttonColor: var(--primary);
+	--buttonTextColor: var(--black);
+	--footerTextColor: var(--lightGrey);
+	--footerBackground: var(--black);
 
 	/* Styles */
-	--line: 1px solid var(--lineColor);
+	--line: solid 1px var(--lineColor);
 
 	/* Type */
-	--headingFont: 'Playfair Display', serif;
-	--bodyFont: 'Open Sans', sans-serif;
-	/* --baseFontSize: 100%; 16px */
-	--baseFontSize: 112.5%; /*18px */
-	--h1: 3.052rem;
-	--h2: 2.441rem;
-	--h3: 1.953rem;
-	--h4: 1.563rem;
-	--h5: 1.25rem;
-	--h6: 1.111rem;
-	--smallText: 0.8rem;
+	--headingFont: "Playfair Display", serif;
+	--bodyFont: "Open Sans", sans-serif;
+	--baseFontSize: 112.5%;
+	--h1: 3.052em;
+	--h2: 2.441em;
+	--h3: 1.953em;
+	--h4: 1.563em;
+	--h5: 1.25em;
+	--smallText: 0.8em;
 
-	/* Elevation (Drop Shadows) */
+	/* Elevation */
 	--level-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-	--level-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-	--level-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-	--level-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-	--inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+	--level-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--level-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+		0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--level-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+		0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
 	/* Positioning */
-	--containerPadding: 1rem;
+	--containerPadding: 2.5%;
 	--headerHeight: 3rem;
+	--borderRadius: 4px;
 }
 
+/* FROM Type Scale */
+
 html {
-	font-size: var(--baseFontSize); /*18px*/
+	font-size: var(--baseFontSize);
 	box-sizing: border-box;
-}
+} /*18px*/
 
 *,
 *::before,
@@ -59,42 +70,39 @@ html {
 body {
 	font-family: var(--bodyFont);
 	font-weight: 400;
-	line-height: 1.75;
+	line-height: 1.65;
+	background: var(--background);
+	color: var(--textColor);
 }
 
 header {
-	--headerBackground: var(--black);
-	background: var(--headerBackground);
 	color: white;
-	box-shadow: var(--level-2);
 	position: fixed;
 	left: 0;
 	top: 0;
 	width: 100%;
-}
-
-header nav {
 	height: var(--headerHeight);
+	background: var(--headerBackground);
+	box-shadow: var(--level-2);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: var(--containerPadding);
+	padding: 0 var(--containerPadding);
 }
 
-header a {
+header nav a {
 	color: white;
 	text-decoration: none;
 }
 
-header a + a {
-	margin-left: 0.5rem;
+header nav a + a {
+	margin-left: 10px;
 }
 
 footer {
-	--footerTextColor: white;
 	color: var(--footerTextColor);
-	background: var(--black);
-	padding: var(--containerPadding);
+	background: var(--footerBackground);
+	padding: 2rem var(--containerPadding);
 	text-align: center;
 }
 
@@ -103,25 +111,31 @@ footer a {
 }
 
 footer p {
-	margin: 0;
+	margin-bottom: 0;
+	max-width: none;
 }
 
 p {
-	margin-bottom: 1rem;
+	margin-bottom: 1.15rem;
+	max-width: 40em;
 }
 
 p a,
 blockquote a {
-	color: var(--black);
+	color: var(--textColor);
 	text-decoration: none;
-	border-bottom: 2px solid var(--green);
+	border-bottom: solid 2px var(--primary);
 }
 
-h1, h2, h3, h4, h5, h6 {
-	margin: 3rem 0 1.38rem;
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin: 2.75rem 0 1.05rem;
 	font-family: var(--headingFont);
 	font-weight: 400;
-	line-height: 1.3;
+	line-height: 1.15;
 }
 
 h1 {
@@ -129,18 +143,33 @@ h1 {
 	font-size: var(--h1);
 }
 
-h2 {font-size: var(--h2);}
-h3 {font-size: var(--h3);}
-h4 {font-size: var(--h4);}
-h5 {font-size: var(--h5);}
-h6 {font-size: var(--h6);}
+h2 {
+	font-size: var(--h2);
+}
+
+h3 {
+	font-size: var(--h3);
+}
+
+h4 {
+	font-size: var(--h4);
+}
+
+h5 {
+	font-size: var(--h5);
+}
 
 small,
-.text_small {font-size: var(--smallText);}
+.text_small {
+	font-size: var(--smallText);
+}
+
+/* End typescale */
 
 blockquote {
-	margin: 2rem;
-	padding: 1rem;
+	margin: 10px;
+	padding: 2em;
+	background: var(--cardBg);
 	box-shadow: var(--level-3);
 }
 
@@ -151,16 +180,14 @@ label {
 
 input,
 textarea {
-	width: 100%;
-	padding: 0.5rem;
+	padding: 4px 5px;
 	border: var(--line);
-	border-radius: 4px;
-	box-shadow: var(--level-1);
+	border-radius: var(--borderRadius);
 }
 
 textarea {
+	width: 100%;
 	height: 5rem;
-	/* width: 100%; */
 }
 
 ::placeholder {
@@ -176,15 +203,12 @@ hr {
 }
 
 button {
-	--buttonColor: var(--black);
-	--textColor: white;
-	cursor: pointer;
 	appearance: none;
-	color: var(--textColor);
+	color: var(--butonTextColor);
 	background-color: var(--buttonColor);
 	border: none;
-	border-radius: 4px;
-	padding: 0.5rem 2rem;
+	border-radius: var(--borderRadius);
+	padding: 5px 25px;
 	box-shadow: var(--level-1);
 	transition: 0.3s ease-in-out box-shadow;
 }
@@ -195,12 +219,12 @@ button:hover {
 
 button[disabled] {
 	opacity: 0.4;
-	--textColor: var(--lightGrey);
-	cursor: not-allowed;
 }
 
+/* .cancel can mean anything */
 button.cancel {
 	--buttonColor: var(--danger);
+	--butonTextColor: var(--white);
 }
 
 button.small {
@@ -208,48 +232,132 @@ button.small {
 }
 
 .layout {
-	padding: var(--containerPadding);
-	padding-top: var(--headerHeight);
+	/* top padding header height + whatever visual padding we want */
+	padding: calc(3rem + var(--headerHeight)) var(--containerPadding);
 }
 
 .grid {
 	--gridCols: 2;
-	gap: 0.5rem;
 	display: block;
 	grid-template-columns: repeat(var(--gridCols), 1fr);
+}
+
+.grid--split {
+	grid-template-columns: 33% 67%;
+	gap: 1rem;
 }
 
 .cols-3 {
 	--gridCols: 3;
 }
 
-.cols-4 {
-	--gridCols: 4;
+.split {
+	display: grid;
+	grid-template-columns: 33% 67%;
+	gap: 1rem;
 }
 
 .flex {
 	--justifyContent: space-between;
-	display: flex;
+	display: block;
 	justify-content: var(--justifyContent);
 }
 
-.flex--space-around {
+.flex-around {
 	--justifyContent: space-around;
 }
 
-.logo {
-	font-size: var(--baseFontSize);
-	margin: 0;
-}
-
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 500px) {
 	:root {
-		--baseFontSize: 112.5%; /*18px*/
+		--baseFontSize: 112.5%;
 	}
 	.grid {
 		display: grid;
 	}
 	.flex {
 		display: flex;
+	}
+}
+
+.fake-logo {
+	font-size: var(--baseFontSize);
+	margin: 0;
+}
+
+.card {
+	padding: 2em;
+	background: var(--cardBg);
+	box-shadow: var(--level-3);
+	border-radius: 10px;
+}
+
+/* First item will never have margin top */
+.card > *:first-child {
+	margin-top: 0;
+}
+
+/* Last item will never have margin bottom */
+.card > *:last-child {
+	margin-bottom: 0;
+}
+
+.dark {
+	--cardBg: var(--darkGrey);
+	--background: var(--black);
+	--textColor: var(--lightGrey);
+	--headerBackground: var(--darkGrey);
+	--butonTextColor: var(--black);
+	--footerBackground: var(--darkGrey);
+}
+
+.oled {
+  --black: #000;
+  --cardBg: var(--darkGrey);
+  --headerBackground: var(--darkGrey);
+  --footerBackground: var(--darkGrey);
+}
+
+@media (prefers-color-scheme: dark) {
+	.prefers-color-scheme {
+		/* Define Colors as colors */
+		--green: #4fc4cf;
+		--red: #ff5470;
+		--yellow: #fbdd74;
+		--black: #181818;
+		--darkBlue: #994ff3;
+		--darkGrey: #222;
+		--grey: #bfbfbf;
+		--lightGrey: #f2f4f6;
+		--white: #fff;
+
+		/* Define Colors intentions */
+		--primary: var(--green);
+		--danger: var(--red);
+		--background: var(--lightGrey);
+		--textColor: var(--black);
+		--buttonTextColor: var(--black);
+		--lineColor: var(--grey);
+		--cardBg: var(--white);
+		--headerBackground: var(--black);
+		--footerBackground: var(--black);
+
+		/* Styles */
+		--line: 1px solid var(--yellow);
+
+		/* Type */
+		--baseFontSize: 110%;
+		--h1: 3.052em;
+		--h2: 2.441em;
+		--h3: 1.953em;
+		--h4: 1.563em;
+		--h5: 1.25em;
+		--smallText: 0.8em;
+
+		--cardBg: var(--darkGrey);
+		--background: var(--black);
+		--textColor: var(--lightGrey);
+		--headerBackground: var(--darkGrey);
+		--butonTextColor: var(--black);
+		--footerBackground: var(--darkGrey);
 	}
 }
