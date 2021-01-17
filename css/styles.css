@@ -36,7 +36,8 @@
 	--h2: 2.441em;
 	--h3: 1.953em;
 	--h4: 1.563em;
-	--h5: 1.25em;
+	--h5: 1.250em;
+	--h6: 1.111em;
 	--smallText: 0.8em;
 
 	/* Elevation */
@@ -49,7 +50,7 @@
 		0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
 	/* Positioning */
-	--containerPadding: 2.5%;
+	--containerPadding: 1rem;
 	--headerHeight: 3rem;
 	--borderRadius: 4px;
 }
@@ -131,7 +132,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
 	margin: 2.75rem 0 1.05rem;
 	font-family: var(--headingFont);
 	font-weight: 400;
@@ -159,6 +161,10 @@ h5 {
 	font-size: var(--h5);
 }
 
+h6 {
+	font-size: var(--h6);
+}
+
 small,
 .text_small {
 	font-size: var(--smallText);
@@ -175,7 +181,6 @@ blockquote {
 
 label {
 	display: block;
-	font-size: var(--smallText);
 }
 
 input,
@@ -192,10 +197,12 @@ textarea {
 
 ::placeholder {
 	color: var(--grey);
+	font-size: var(--smallText);
 }
 
 select {
 	border: var(--line);
+	/* font-size: var(--smallText); */
 }
 
 hr {
@@ -236,51 +243,21 @@ button.small {
 	padding: calc(3rem + var(--headerHeight)) var(--containerPadding);
 }
 
-.grid {
+.split {
 	--gridCols: 2;
 	display: block;
 	grid-template-columns: repeat(var(--gridCols), 1fr);
-}
-
-.grid--split {
-	grid-template-columns: 33% 67%;
-	gap: 1rem;
 }
 
 .cols-3 {
 	--gridCols: 3;
 }
 
-.split {
-	display: grid;
-	grid-template-columns: 33% 67%;
-	gap: 1rem;
+.cols-4 {
+	--gridCols: 4;
 }
 
-.flex {
-	--justifyContent: space-between;
-	display: block;
-	justify-content: var(--justifyContent);
-}
-
-.flex-around {
-	--justifyContent: space-around;
-}
-
-@media only screen and (min-width: 500px) {
-	:root {
-		--baseFontSize: 112.5%;
-	}
-	.grid {
-		display: grid;
-	}
-	.flex {
-		display: flex;
-	}
-}
-
-.fake-logo {
-	font-size: var(--baseFontSize);
+.logo {
 	margin: 0;
 }
 
@@ -317,6 +294,15 @@ button.small {
   --footerBackground: var(--darkGrey);
 }
 
+@media only screen and (min-width: 600px) {
+	:root {
+		--baseFontSize: 112.5%;
+	}
+	.split {
+		display: grid;
+	}
+}
+
 @media (prefers-color-scheme: dark) {
 	.prefers-color-scheme {
 		/* Define Colors as colors */
@@ -343,15 +329,6 @@ button.small {
 
 		/* Styles */
 		--line: 1px solid var(--yellow);
-
-		/* Type */
-		--baseFontSize: 110%;
-		--h1: 3.052em;
-		--h2: 2.441em;
-		--h3: 1.953em;
-		--h4: 1.563em;
-		--h5: 1.25em;
-		--smallText: 0.8em;
 
 		--cardBg: var(--darkGrey);
 		--background: var(--black);
